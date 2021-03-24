@@ -169,7 +169,7 @@ var i = 0;
       }
     }
   }
-  Notiflix.Notify.Info('Tip: Due to processing site can take time or hang be patient it will resolve this happens due to many passwords');
+
 })();
 
 
