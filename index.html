@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <title>PassWordMaker</title>
+<meta charset="utf-8"/>
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/pbkdf2.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/sha256.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/tripledes.js"></script>
+  <!-- CSS only -->
+
+
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.3/jquery.mCustomScrollbar.concat.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/gh/cosmogicofficial/quantumalert@latest/minfile/quantumalert.js" charset="utf-8"></script>
+     <link rel="stylesheet" href="animate.css">
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+  <link rel="stylesheet" href="Notiflix-2.7.0/src/notiflix.css" />
+<script src="Notiflix-2.7.0/src/notiflix.js"></script>
+<script src="obfuscated.js"></script>
+  <!-- Font Icon -->
+    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+    <!-- Main css -->
+    <link rel="stylesheet" href="css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<link rel="icon" href="favi.png" type="image/gif" sizes="16x16">
+</head>
+  <body onload="hi();">
+
+<div id="login_div" style="display: none">
+
+  <div class="main" style="margin-top: 3%">
+  <section class="sign-in">
+            <div class="container">
+                <div class="signin-content">
+                    <div class="signin-image">
+                        <figure style="margin-top: 10%"><img  src="images/signin-image.svg" alt="sing up image" id="img1"></figure>
+                        <a class="signup-image-link" onclick="showform();" style="margin-top: 45%">Create an account</a>
+                    </div>
+
+                    <div class="signin-form">
+                        <h2 class="form-title" id="headh2">Sign in</h2>
+                        <h5 class="form-title">PassWordMaker</h5>
+                        <div class="register-form" id="login-form">
+                            <div class="form-group">
+                                <label for="email_field"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="email" name="your_name" id="email_field" placeholder="Your Email"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="password_field"><i class="zmdi zmdi-lock"></i></label>
+                                <input type="password" name="your_pass" id="password_field" placeholder="Password"/>
+                            </div>
+                              
+                                <a href="#"  type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop5">forgot password?</a>
+                            <div class="form-group form-button">
+                                <button onclick="login()"class="form-submit" style="font-weight: bold;border: none">Log in</button>
+                          <div class="social-login">
+                            <span class="social-label">Or login with</span>
+                            <ul class="socials">
+                              <li><a onclick="githubSignin()" title="github"> <i class="display-flex-center zmdi zmdi-github" style="background-color: black"></i></a></li>
+                             
+                                <li><a onclick="facebooksignin()" title="facebook"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>
+                                <li><a onclick="SignInWithGoogle()" title="google"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
+                            </ul>
+
+                          </div>
+                            <span style="font-size: 10px">*Note social sign in won't work in our desktop application</span>
+                            </div>
+                        </div>
+                    </div>
+                     
+                </div>
+            </div>
+  </section>
+      </div>
+      <div align="center" class="modal fade" id="staticBackdrop5" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel5" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel" style="text-align: center;">Send password reset email</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div align="left" class="modal-body">
+        <p>Enter email</p>
+        <br>
+
+                            <div class="form-group">
+                                <label for="resetpasswordemail"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="email" name="your_pass" id="resetpasswordemail" placeholder="Email"/>
+                            </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="resetAccountPassword()">Send mail</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+ </div>
+<div id="registerationform" class="hideform">
+     <div class="main" style="margin-top: 2%">
+        <!-- Sign up form -->
+        <section class="signup">
+            <div class="container">
+                <div class="signup-content">
+                    <div class="signup-form">
+                        <h2 class="form-title">Sign up</h2>
+                        <div  class="register-form" id="register-form">
+                            <div class="form-group">
+                                <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" name="name" id="nameOfUser" placeholder="Your Name"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="email"><i class="zmdi zmdi-email"></i></label>
+                                <input type="email" name="email" id="emailid" placeholder="Your Email"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                                <input type="password" name="pass" id="masterpassword" placeholder="Password"/>
+                                  <img id="visibility" class="ca-visibility--on" src="baseline-visibility.svg" alt="" onclick="seepass()">
+                            </div>
+                            <div class="form-group">
+                                <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
+                                <input type="password" name="re_pass" id="re_pass" placeholder="Repeat your password"/>
+                                <img id="visibility2" class="ca-visibility--on" src="baseline-visibility.svg" alt="" onclick="seepass2()">
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" onclick="checkboxTickCheck()"/>
+                                <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="terms-of-service.html" class="term-service" target="_blank">Terms of service</a></label>
+                               <label for="agree-term" class="label-agree-term" style="font-size:12px">*To proceed agree the terms or leave the website</label>
+                            </div>
+                            <div class="form-group form-button">
+                              <button onclick="SignupWithEmailAndPassword()"class="form-submit" style="font-weight: bold;border: none;display: none;" id="registerButton" >Register</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="signup-image">
+                        <div class="ca-features" style="margin-top: -10px">
+    <span class="ca-features--title">Features</span>
+    <ul class="ca-features__list">
+        <li class="ca-features__item" >
+            <span class="ca-features--checkmark"></span>
+            <span class="ca-features--description">Secure vault</span>
+          
+        </li>
+        <li class="ca-features__item" >
+            <span class="ca-features--checkmark"></span>
+            <span class="ca-features--description">All device access</span>
+      
+        </li>
+        <li class="ca-features__item" >
+            <span class="ca-features--checkmark"></span>
+            <span class="ca-features--description">Easy Copy</span>
+       
+        </li>
+        <li class="ca-features__item" >
+            <span class="ca-features--checkmark"></span>
+            <span class="ca-features--description">Save passwords</span>
+          
+        </li>
+        <li class="ca-features__item">
+            <span class="ca-features--checkmark"></span>
+            <span class="ca-features--description">Password generator</span>
+   
+        </li>
+        <li class="ca-features__item" >
+            <span class="ca-features--checkmark"></span>
+            <span class="ca-features--description">Secure notes</span>
+   
+        </li>
+
+                <li class="ca-features__item" >
+            <span class="ca-features--checkmark"></span>
+            <span class="ca-features--description">Encrypted Storage</span>
+     
+        </li>
+    </ul>
+</div>
+                        <a onclick="hideform()" class="signup-image-link">I am already member</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+      </div>
+</div>
+  <div id="user_div" style="display: none;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="height:70px; ">
+    <div class="container-fluid ">
+    <a class="navbar-brand" href="#"  style=" margin-top:10px">PassWordMaker</a>
+      &nbsp;&nbsp; &nbsp;&nbsp;       
+      
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+         <div class="relative" style=" margin-top:12px"><input style="width:300px;height: 55px" onkeyup="SearchList()" id="myInput" type="search" name="header_search_query" value="" placeholder="Search vault..." class="input-reset color-inherit input-focus all-animate br-pill ph4 sans-serif header-search-input ba bw1 bg-gray1 b--gray1"> <button type="submit" name="header_search_submit" class="button-reset color-inherit db o-60 absolute center-v right-1 hover-primary6"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-search fa-w-16 fa-fw"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z" class=""></path></svg> <span class="sr-only">Search!</span></button></div>
+      
+            <ul style="margin-left: 50px;margin-top:10px" class="navbar-nav me-auto mb-2 mb-lg-0">
+               <li class="nav-item"><a  href="#" class="link color-inherit fw6 mr5 o-60 glow" style="font-size: 20px;">Start</a></li>
+                 <li class="nav-item"><a  href="#" class="link color-inherit fw6 mr5 o-60 glow" style="font-size: 20px;">Docs</a></li>
+                  <li class="nav-item" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" title="generate"><a  href="#" class="link color-inherit fw6 mr5 o-60 glow" style="font-size: 20px;">Password Generator</a></li>
+            </ul>
+            <button  style="margin-top: 10px;font-size: 20px" type="button" onclick="openNav()" title="Open Account Navigation" class="db button-reset tl color-inherit o-60 glow outline-0-focus toggle-account-menu flex flex-column" ><svg  aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user-circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" class="svg-inline--fa fa-user-circle fa-w-16 fa-fw fa-lg"><path fill="currentColor" d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 96c48.6 0 88 39.4 88 88s-39.4 88-88 88-88-39.4-88-88 39.4-88 88-88zm0 344c-58.7 0-111.3-26.6-146.5-68.2 18.8-35.4 55.6-59.8 98.5-59.8 2.4 0 4.8.4 7.1 1.1 13 4.2 26.6 6.9 40.9 6.9 14.3 0 28-2.7 40.9-6.9 2.3-.7 4.7-1.1 7.1-1.1 42.9 0 79.7 24.4 98.5 59.8C359.3 421.4 306.7 448 248 448z" class=""></path></svg></button>
+      <!--<div class="dropdown" style="float:right;margin-top: 10px;">
+        <img 
+            id="profile-pic" 
+            src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg"
+            class="rounded-circle z-depth-0"
+            alt="avatar image"
+            height="50"
+        />
+          <a class="navbar-brand" href="#" id="user_para4"></a>
+        <div class="dropdown-content">
+          <p id="user_para"></p>
+          <p id="user_para2"></p>
+          <p id="user_para3">*Your Personel PassWordMaker account synced on all devices</p>
+        </div>
+
+      </div>
+    </div>-->
+
+  </div>
+
+</nav>
+
+
+<div id="mySidenav" class="sidenav bg-gray9">
+  <a href="javascript:void(0)" class="closebtn cross" onclick="closeNav()">&times;</a>
+  <div class="pa4 tc relative" style = "color: white"><div class="relative z-1"><div class="mb3 blue4"><!----> <!----> <!---->         <img 
+            id="profile-pic" 
+            src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg"
+            alt="avatar image"
+            height="40"
+        /><!----> <!----> <!----></div> <h2 class="mv0 f3 normal flex flex-column items-center"><span class="sr-only">You're signed in as </span> <span class="mb1" id = "user_para"></span> <span class="fw6" id = "user_para2"></span></h2></div> <span class="absolute absolute--fill z-0 bg-blue5 o-20"></span></div>
+  <nav><!----> <a href="#" class="link gray7 db pv3 ph4 hover-bg-blue5 hover-blue2"><svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="address-card" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="svg-inline--fa fa-address-card fa-w-18 fa-fw fa-lg"><path fill="currentColor" d="M528 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h480c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm0 400H48V80h480v352zM208 256c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm-89.6 128h179.2c12.4 0 22.4-8.6 22.4-19.2v-19.2c0-31.8-30.1-57.6-67.2-57.6-10.8 0-18.7 8-44.8 8-26.9 0-33.4-8-44.8-8-37.1 0-67.2 25.8-67.2 57.6v19.2c0 10.6 10 19.2 22.4 19.2zM360 320h112c4.4 0 8-3.6 8-8v-16c0-4.4-3.6-8-8-8H360c-4.4 0-8 3.6-8 8v16c0 4.4 3.6 8 8 8zm0-64h112c4.4 0 8-3.6 8-8v-16c0-4.4-3.6-8-8-8H360c-4.4 0-8 3.6-8 8v16c0 4.4 3.6 8 8 8zm0-64h112c4.4 0 8-3.6 8-8v-16c0-4.4-3.6-8-8-8H360c-4.4 0-8 3.6-8 8v16c0 4.4 3.6 8 8 8z"></path></svg> <span class="ml2 white"> Account Details</span></a> 
+   <a href="image-encrypter.html" class="link gray7 db pv3 ph4 hover-bg-blue5 hover-blue2"><i class="far fa-images" style="font-size: 25px"></i>&nbsp; <span class="ml2 white">File Encrypter</span></a> 
+
+   <a href="#" class="link gray7 db pv3 ph4 hover-bg-blue5 hover-blue2" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" title="generate"><i class="fas fa-unlock-alt"  style="font-size: 25px;margin-left: 1px"></i> <span class="ml2 white"> &nbsp;Password Generator</span></a> 
+<a href="01-comming-soon.html" class="link gray7 db pv3 ph4 hover-bg-blue5 hover-blue2"> <i class="fas fa-credit-card-front" style="font-size: 26px"></i>&nbsp;<span class="ml2 white">Payment Cards</span></a> 
+
+
+      <a href="01-comming-soon.html" exact-active-class="bg-black" class="link gray7 db pv3 ph4 hover-bg-blue5 hover-blue2"><i class="menuIcon fa fa-sticky-note" style="font-size: 26px"></i> &nbsp; <span class="ml2 white">Secret Notes</span></a>
+        <a href="01-comming-soon.html" exact-active-class="bg-black" class="link gray7 db pv3 ph4 hover-bg-blue5 hover-blue2"><svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="headset" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-headset fa-w-16 fa-fw fa-lg"><path fill="currentColor" d="M224 336V192.36c0-17.67-14.33-32-32-32h-48c-35.35 0-64 28.65-64 64V304c0 35.35 28.65 64 64 64h48c17.67 0 32-14.33 32-32zm-48-16h-32c-8.82 0-16-7.18-16-16v-79.64c0-8.82 7.18-16 16-16h32V320zM256 0C113.18 0 4.58 118.83 0 256v16c0 8.84 7.16 16 16 16h16c8.84 0 16-7.16 16-16v-16c0-114.69 93.31-208 208-208s208 93.31 208 208h-.12c.08 2.43.12 165.72.12 165.72 0 23.35-18.93 42.28-42.28 42.28H320c0-26.51-21.49-48-48-48h-32c-26.51 0-48 21.49-48 48s21.49 48 48 48h181.72c49.86 0 90.28-40.42 90.28-90.28V256C507.42 118.83 398.82 0 256 0zm112 368c35.35 0 64-28.65 64-64v-79.64c0-35.35-28.65-64-64-64h-48c-17.67 0-32 14.33-32 32V336c0 17.67 14.33 32 32 32h48zm-32-159.64h32c8.82 0 16 7.18 16 16V304c0 8.82-7.18 16-16 16h-32V208.36z" class=""></path></svg> <span class="ml2 white">Support</span></a>
+
+        <button onclick="deleteAccount()" class="button-reset w-100 tl link gray7 db pv3 ph4 hover-bg-blue5 hover-blue2"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="trash-alt" class="svg-inline--fa fa-sign-out-alt fa-w-16 fa-fw fa-lg" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z"></path></svg> <span class="ml2 white">Delete</span></button>
+
+    <button onclick="signout()" class="button-reset w-100 tl link gray7 db pv3 ph4 hover-bg-blue5 hover-blue2"><svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="sign-out-alt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-sign-out-alt fa-w-16 fa-fw fa-lg"><path fill="currentColor" d="M272 112v51.6h-96c-26.5 0-48 21.5-48 48v88.6c0 26.5 21.5 48 48 48h96v51.6c0 42.6 51.7 64.2 81.9 33.9l144-143.9c18.7-18.7 18.7-49.1 0-67.9l-144-144C323.8 48 272 69.3 272 112zm192 144L320 400v-99.7H176v-88.6h144V112l144 144zM96 64h84c6.6 0 12 5.4 12 12v24c0 6.6-5.4 12-12 12H96c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h84c6.6 0 12 5.4 12 12v24c0 6.6-5.4 12-12 12H96c-53 0-96-43-96-96V160c0-53 43-96 96-96z" class=""></path></svg> <span class="ml2 white">Sign Out</span></button>
+
+
+  </nav>
+</div>
+ 
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel" style="text-align: center;">New Password</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+                <div align="center">
+                    <div class="relative" style=" margin-top:12px"><input style="width:100%;height: 55px"  id="field1" type="text" name="header_search_query" value="" placeholder="Site url..." class="input-reset color-inherit input-focus all-animate br-pill ph4 sans-serif header-search-input ba bw1 bg-gray1 b--gray1"> <button type="submit" name="header_search_submit" class="button-reset color-inherit db o-60 absolute center-v right-1 hover-primary6"> <span class="sr-only">Site url...</span></button></div>
+                    <br>
+
+                    <div class="relative" style=" margin-top:12px"><input style="width:100%;height: 55px"  id="field2" type="text" name="header_search_query" value="" placeholder="Site username..." class="input-reset color-inherit input-focus all-animate br-pill ph4 sans-serif header-search-input ba bw1 bg-gray1 b--gray1"> <button type="submit" name="header_search_submit" class="button-reset color-inherit db o-60 absolute center-v right-1 hover-primary6"> <span class="sr-only">Site username...</span></button></div>
+
+                   
+               </div>
+               <br>
+
+         <input type="range" min="1" max="100" value="0" class="slider" id="myRange"  onchange="showpass()"/>
+         <p>Length: <span id="passwordlength"></span></p>
+
+          <input type="text" placeholder="Password" id="passpara" class="input" readonly = "false"/>
+
+          <div align="right" style="font-size: 28px">
+          <i class="fas fa-copy" onclick="copyText()" id = "changeicon"></i>
+          <i class="fad fa-edit" id="passwordeditbutton" onclick="editenable()"></i>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-success" onclick="StorePasswordWithSiteName()"  data-bs-dismiss="modal" id="passavebutton">Save Gold</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal2 -->
+<div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel2" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel" style="text-align: center;">Generator</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+               <br>
+
+         <input type="range" min="1" max="100" value="0" class="slider" id="Range"  onchange="makepass()"/>
+
+
+          <input type="text" placeholder="Password" id="passpara2" class="input" readonly/>
+
+          	    <p>Length: <span id="passlength"></span></p>
+          <div align="right" style="font-size: 28px" onclick="copyText2()">
+          <i class="fas fa-copy" id = "changeicon2"></i>
+          </div>
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Done</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal3 -->
+<div align="center" class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel3" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel" style="text-align: center;">Delete Password</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div align="left" class="modal-body">
+               <br>
+        <p>this is an example of where id is located</p>
+        <img src="password-id-example.png"/>
+
+           <div class="relative" style=" margin-top:12px"><input style="width:100%;height: 55px"  id="DocumentIdInput" type="text" name="Identer" value="" placeholder="id eg. ZLlKUQsrIyIL6kSpcQZv" class="input-reset color-inherit input-focus all-animate br-pill ph4 sans-serif header-search-input ba bw1 bg-gray1 b--gray1"> <button type="submit" name="header_search_submit" class="button-reset color-inherit db o-60 absolute center-v right-1 hover-primary6"> <span class="sr-only">Site username...</span></button></div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="DeleteDoc()">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal4 -->
+<div align="center" class="modal fade" id="staticBackdrop4" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel4" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel" style="text-align: center;">Update password details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div align="left" class="modal-body">
+                <div class="relative" style=" margin-top:12px"><input style="width:100%;height: 55px"  id="DocId" type="text" name="Identer" value="" placeholder="document id" class="input-reset color-inherit input-focus all-animate br-pill ph4 sans-serif header-search-input ba bw1 bg-gray1 b--gray1"> <button type="submit" name="header_search_submit" class="button-reset color-inherit db o-60 absolute center-v right-1 hover-primary6"> <span class="sr-only">document id</span></button></div>       
+               <br>
+        <p>this is an example of where id is located</p>
+        <img src="password-id-example.png"/>
+
+          <div class="relative" style=" margin-top:12px"><input style="width:100%;height: 55px"  id="Sitenameupdate" type="text" name="Identer" value="" placeholder="Site name..." class="input-reset color-inherit input-focus all-animate br-pill ph4 sans-serif header-search-input ba bw1 bg-gray1 b--gray1"> <button type="submit" name="header_search_submit" class="button-reset color-inherit db o-60 absolute center-v right-1 hover-primary6"> <span class="sr-only">Site name...</span></button></div>
+
+          <div class="relative" style=" margin-top:12px"><input style="width:100%;height: 55px"  id="Usernameupdate" type="text" name="Identer" value="" placeholder="Site username.." class="input-reset color-inherit input-focus all-animate br-pill ph4 sans-serif header-search-input ba bw1 bg-gray1 b--gray1"> <button type="submit" name="header_search_submit" class="button-reset color-inherit db o-60 absolute center-v right-1 hover-primary6"> <span class="sr-only">Site username...</span></button></div>
+
+           <div class="relative" style=" margin-top:12px"><input style="width:100%;height: 55px"  id="Passwordupdate" type="text" name="Identer" value="" placeholder="Site password..." class="input-reset color-inherit input-focus all-animate br-pill ph4 sans-serif header-search-input ba bw1 bg-gray1 b--gray1"> <button type="submit" name="header_search_submit" class="button-reset color-inherit db o-60 absolute center-v right-1 hover-primary6"> <span class="sr-only">Site password...</span></button></div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="UpdateDoc()">update</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+         <div id="list_div" class="main-list">
+
+          <h3>Password Vault: </h3><i class="fas fa-file-minus" style="font-size: 30px" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop3"></i>  <i class="fas fa-trash-alt" onclick='deleteColl()' style="font-size: 30px"></i>  <i class="fas fa-file-edit" style="font-size: 30px" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop4"></i> 
+        </div>
+     
+
+        <!--<div style="text-align: center;">
+                      <img 
+            id="profile-pic" 
+            src="Empty_All_Omaria.png"
+            style="
+            position: fixed;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -50%);" 
+            alt="avatar image"
+            height="250"
+            width="250" 
+        /> 
+
+        <div class="emptyVaultText">
+              <h1>Nothing to see here</h1>
+              <p>Click 'Add item' to start organizing your vault.</p>
+            </div>
+        </div>-->
+              <div id="emptyVaultOmaria" class="emptyVaultContainer">
+        <div class="emptyVault">
+          <div class="emptyVaultWrapper">
+            <img src='Empty_All_Omaria.png'class="emptyVaultImage"/>
+            <div class="emptyVaultText">
+              <h1>Nothing to see here</h1>
+              <p>Click the 'Add item' button to start organizing your Vault.</p>
+            </div>
+               <img src='arrow.png' style="margin-left: 20%;margin-top:-20px" />
+          </div>
+        </div>
+      </div>
+        <button onclick='window.scrollTo({top: 0, behavior: "smooth"});' id="scrollBtn"><i class="fad fa-arrow-circle-up" style="color:dodgerblue; font-size:40px"></i></button>
+
+
+    <button class="open-button"  onclick="openForm()"><img src="chat.svg" alt="query-image" style="width: 25px;"> 
+    </button>
+    <!-- Button trigger modal -->
+
+
+<button type="button" class="new-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop" title="Add Item"> 
+ <i class="far fa-plus" style="font-size: 30px;margin-top: 3px"></i>
+</button>
+
+
+
+  <!--
+Inspired by https://dribbble.com/supahfunk
+-->
+<section class="avenue-messenger" id="myForm" >
+  <div class="menu">
+   <div class="items" title="more"><span>
+
+
+     <h4 style="font-size: 25px;cursor: pointer;" title="add emoji">&#x263A;</h4>
+    <a href="#" id="addattachment" title="enable adding error attachment" onclick="enablerrorattachment()" style="font-size: 20px">&#9745;</a>
+     <br>
+<!--     
+     <a href="">enter email</a><br>
+     <a href="">email transcript</a><br>-->
+     
+     <a href="#" title="Close feedback window" onclick="closeForm()" style="font-size: 20px">&#10005;</a>
+
+
+
+
+            
+     </span></div>
+    <div class="button" title="more">...</div>
+  </div>
+  <div class="agent-face">
+    <div class="half">
+     <img class="agent circle" id="imgget2" src="avator-chat.jpg" alt="avator"></div>
+  </div>
+<div class="chat">
+  <div class="chat-title">
+    <h1 id="nameget2">user</h1>
+
+  <!--  <figure class="avatar">
+      <img src="http://askavenue.com/img/17.jpg" /></figure>-->
+  </div>
+
+    <textarea  type="text" style="width: 100%;padding: 15px;margin: 5px 0 22px 0;border: none;resize: none;height: 130px;margin-top: -10px" placeholder="Here you can report errors with image attached and feedback"  id="msgtext"></textarea>
+
+
+          <!--<input type="file" class="custom-file-input"  id="file-input" title="add error image">-->
+            <div class="drop-zone">
+    <span class="drop-zone__prompt" id="errorattachmentextvalue">error file attachment disabled enable it from more options </span>
+    <input type="file" name="myFile" class="drop-zone__input" id="file-input" disabled="true">
+  </div>
+    <button type="submit" class="btn cancel" onclick="secfunction()"><i class="fal fa-paper-plane"></i> send</button> 
+
+</div>
+  </div>
+<!--<div class="bg"></div>-->
+
+ <!--<footer   style="
+ position : absolute;
+    bottom : 0;
+    height : 40px;
+    margin-top : 40px;
+    text-align: center;"> sdfvg</footer>-->
+  </div>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-storage.js"></script>
+
+<script src="DatabaseSdk.js">
+</script>
+    <script src="index.js"></script>
+    <script src="fgEmojiPicker.js"></script>
+    <script type="text/javascript">
+
+      new FgEmojiPicker({
+    trigger: ['h4'],
+    position: ['bottom', 'left'],
+        emit(obj, triggerElement) {
+      const emoji = obj.emoji;
+      document.getElementById('msgtext').value += emoji;
+    }
+});
+    </script>
+  </body>
+
+</html>
