@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Getting started</title>		
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" href="css/style.css">
+ <link rel="icon" href="favi.png" type="image/gif" sizes="16x16">
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/themify-icons/0.1.2/css/themify-icons.css">
+ <style>
+
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  background: #fff;
+  color: #999;
+}
+
+a {
+  text-decoration: none;
+  margin: 1rem 0;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.8125rem;
+  letter-spacing: 1px;
+}
+
+p {
+  font-size: 0.9rem;
+  margin: 1rem 0;
+  line-height: 1.5;
+}
+
+section {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 30px;
+}
+
+h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  color: #333;
+  font-size: 1.825rem;
+  margin: 1.3rem 0;
+}
+
+.section-lead {
+  max-width: 600px;
+  margin: 1rem auto 1.5rem;
+}
+
+.service a {
+  color: #5b7abb;
+  display: block;
+}
+
+.service h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  color: #56ceba;
+  font-size: 1.3rem;
+  margin: 1rem 0 0.6rem;
+}
+
+.services-grid {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+.service {
+  background: #fff;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 4px;
+  text-align: center;
+  -webkit-box-flex: 1;
+  flex: 1;
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+  border: 2px solid #e7e7e7;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.service:hover {
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
+  -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
+}
+
+.service i {
+  font-size: 3.45rem;
+  margin: 1rem 0;
+}
+
+.service1 i,
+.service1 h4,
+.service1 .cta {
+  color: #42b7ca;
+}
+
+.service1:hover {
+  border: 2px solid #42b7ca;
+}
+
+.service2 i,
+.service2 h4,
+.service2 .cta {
+  color: #425fca;
+}
+
+.service2:hover {
+  border: 2px solid #425fca;
+}
+
+.service3 i,
+.service3 h4,
+.service3 .cta {
+  color: #9c42ca;
+}
+
+.service3:hover {
+  border: 2px solid #9c42ca;
+}
+
+.service .cta span {
+  font-size: 0.6rem;
+}
+
+.service > * {
+  flex: 1 1 100%;
+}
+
+.service .cta {
+  align-self: flex-end;
+}
+
+@media all and (max-width:900px) {
+  .services-grid {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+  }
+}
+::-webkit-scrollbar 
+{width: 10px;}
+ 
+::-webkit-scrollbar-track 
+{background: #d0d6d1;}
+
+::-webkit-scrollbar-thumb
+{background: #adadad;border-radius: 100px;}
+
+@import url('https://fonts.googleapis.com/css?family=Hind:300,400&display=swap');
+ * {
+	 box-sizing: border-box;
+}
+ *::before, *::after {
+	 box-sizing: border-box;
+}
+
+ .container {
+	 margin: 0 auto;
+	 padding: 4rem;
+	 width: 48rem;
+}
+ .accordion .accordion-item {
+	 border-bottom: 1px solid #e5e5e5;
+}
+ .accordion .accordion-item button[aria-expanded='true'] {
+	 border-bottom: 1px solid #03b5d2;
+}
+ .accordion button {
+	 position: relative;
+	 display: block;
+	 text-align: left;
+	 width: 100%;
+	 padding: 1em 0;
+	 color: #7288a2;
+	 font-size: 1.15rem;
+	 font-weight: 400;
+	 border: none;
+	 background: none;
+	 outline: none;
+}
+ .accordion button:hover, .accordion button:focus {
+	 cursor: pointer;
+	 color: #03b5d2;
+}
+ .accordion button:hover::after, .accordion button:focus::after {
+	 cursor: pointer;
+	 color: #03b5d2;
+	 border: 1px solid #03b5d2;
+}
+ .accordion button .accordion-title {
+	 padding: 1em 1.5em 1em 0;
+}
+ .accordion button .icon {
+	 display: inline-block;
+	 position: absolute;
+	 top: 18px;
+	 right: 0;
+	 width: 22px;
+	 height: 22px;
+	 border: 1px solid;
+	 border-radius: 22px;
+}
+ .accordion button .icon::before {
+	 display: block;
+	 position: absolute;
+	 content: '';
+	 top: 9px;
+	 left: 5px;
+	 width: 10px;
+	 height: 2px;
+	 background: currentColor;
+}
+ .accordion button .icon::after {
+	 display: block;
+	 position: absolute;
+	 content: '';
+	 top: 5px;
+	 left: 9px;
+	 width: 2px;
+	 height: 10px;
+	 background: currentColor;
+}
+ .accordion button[aria-expanded='true'] {
+	 color: #03b5d2;
+}
+ .accordion button[aria-expanded='true'] .icon::after {
+	 width: 0;
+}
+ .accordion button[aria-expanded='true'] + .accordion-content {
+	 opacity: 1;
+	 max-height: 9em;
+	 transition: all 200ms linear;
+	 will-change: opacity, max-height;
+}
+ .accordion .accordion-content {
+	 opacity: 0;
+	 max-height: 0;
+	 overflow: hidden;
+	 transition: opacity 200ms linear, max-height 200ms linear;
+	 will-change: opacity, max-height;
+}
+ .accordion .accordion-content p {
+	 font-size: 1rem;
+	 font-weight: 300;
+	 margin: 2em 0;
+}
+ 
+ </style>
+
+
+    </head>
+<body>
+<div style = "padding:50px 50px">
+    <h1 style = "text-align:center;color: #000;font-weight: 200;">PassWordMaker</h1>
+    <h2 style="font-size:30px">Getting started</h2>
+    <p>Thank you for using PassWordMaker! We're happy you're here. Please read how to get started with PassWordMaker with images and FAQs.This will make sure proper usage of PassWordMaker.</p>
+</div>
+<section>
+    <h2 style="font-size:30px">Services and Features</h2>
+    <div class="services-grid">
+      <div class="service service1">
+        <i class="ti-lock"></i>
+        <h4>Secure Data Encryption </h4> 
+        <p>We at PassWordMaker have implemented AES-256 bit encryption with PBKDF2 SHA-512 and salted hashes to ensure complete security in the cloud. You’ll create a password manager account with an email address and a strong master password (or social login though we recommend email and password) to locally-generate a unique encryption key</p>
+       
+      </div>
+  
+      <div class="service service2">
+        <i class="ti-server"></i>
+        <h4>Unlimited Data Storage</h4>
+        <p>Your data is encrypted and decrypted at the device level or client level. Data stored in your vault is kept secret, even from PassWordMaker. Your master password, and the keys used to encrypt and decrypt data, are never sent to PassWordMaker’ servers, and are never accessible by PassWordMaker.This means you are in good hands and all of your data too.</p>
+        
+      </div>
+  
+      <div class="service service3">
+        <i class="ti-money"></i>
+        <h4>Always Free And Open</h4>
+        <p>Get the highest security standards with a global community  become a PassWordMaker user and improve the code repo.PasWordMaker also offers Secure and ability to share sensitive data within your PassWordMaker Vault from any browser, mobile or desktop,including windows,linux and mac os</p>
+      </div>
+    </div>
+  </section>
+  <div class="container">
+    <h2>Frequently Asked Questions</h2>
+    <div class="accordion">
+      <div class="accordion-item">
+        <button id="accordion-button-1" aria-expanded="false"><span class="accordion-title">Why some times site is getting slow or hanged?</span><span class="icon" aria-hidden="true"></span></button>
+        <div class="accordion-content">
+          <p>This can happen when there are a lot of passwords as the type of encryption we use AES-256 with pbkdf2 is very computer intensive process.</p>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button id="accordion-button-2" aria-expanded="false"><span class="accordion-title">How much storage do i get?</span><span class="icon" aria-hidden="true"></span></button>
+        <div class="accordion-content">
+          <p>You get unlimited password storage and suggestions plus 1 gb of encrypted cloud storage excluding password storage.</p>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button id="accordion-button-3" aria-expanded="false"><span class="accordion-title">Is PassWordMaker open source?</span><span class="icon" aria-hidden="true"></span></button>
+        <div class="accordion-content">
+          <p>Yes PassWordMaker is free and open source for every one infact you can edit PassWordMaker code.Here is code <a href="https://github.com/sanatg/PassWordMaker.in-V2">Github Repo</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a href="index.html">Go to the main dashboard</a>
+  <script>
+  if (localStorage.getItem("cryptohashstore") != null) {
+    //...                                                                      
+    alert("alooo")
+  }
+
+  const items = document.querySelectorAll(".accordion button");
+
+function toggleAccordion() {
+  const itemToggle = this.getAttribute('aria-expanded');
+  
+  for (i = 0; i < items.length; i++) {
+    items[i].setAttribute('aria-expanded', 'false');
+  }
+  
+  if (itemToggle == 'false') {
+    this.setAttribute('aria-expanded', 'true');
+  }
+}
+
+items.forEach(item => item.addEventListener('click', toggleAccordion));
+  </script>
+</body>
+</html>
