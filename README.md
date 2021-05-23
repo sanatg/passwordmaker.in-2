@@ -32,6 +32,6 @@ Hi my name is Sanat Gupta i have created PassWordMaker and i will maintain it i 
 
 # Permission
 
-You cannot reuse the code unless you credit the author @sanatg.for more info check liecense.md
+You cannot reuse the code unless you credit the author @sanatg.for more info check license.md
 
 consider following me if you like this program
