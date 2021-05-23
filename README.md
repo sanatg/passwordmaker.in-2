@@ -6,8 +6,7 @@ they are synced with your account where ever you login you will get your passwor
 
 # UI
 
-The UI is self designed and is easy to use its not no well made for phones and the register system for email and password is not there.The design choice is
-inspired by _lastpass and font awesome sites_.
+The UI is self designed and is easy to use and responsive for phones .The design choice was inspired by _lastpass and font awesome sites_.
 
 # Types of authentication
 
