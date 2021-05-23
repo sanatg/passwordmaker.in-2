@@ -1,17 +1,20 @@
 # PassWordMaker
+
 This is an open source password-manager written in javascript and runs on the web.
 the application uses firebase as the database and auth system.All the data gets encrypted on the client side the passwords stored are unknown to me and
 they are synced with your account where ever you login you will get your passwords you can also generate passwords without storing them.
 
 # UI
+
 The UI is self designed and is easy to use its not no well made for phones and the register system for email and password is not there.The design choice is
 inspired by _lastpass and font awesome sites_.
 
 # Types of authentication
-1. Email,Password
+
+1. Email and Password
 2. Google
 3. Facebook
-4. Github(comming in v2)
+4. Github
 
 # Libraries used 
 1. [Notiflix.js](https://www.notiflix.com/)
@@ -24,6 +27,11 @@ inspired by _lastpass and font awesome sites_.
 8. [Firebase](https://console.firebase.google.com/)
 
 # Maintenance and upcoming updates
+
 Hi my name is Sanat Gupta i have created PassWordMaker and i will maintain it i am open for contributions
+
+# Permission
+
+You cannot reuse the code unless you credit the author @sanatg.
 
 consider following me if you like this program
